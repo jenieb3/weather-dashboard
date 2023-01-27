@@ -1,0 +1,10 @@
+.input-group{
+    display: flex;
+    flex-direction: row;
+}
+.today{
+flex-direction: column;
+}
+.forecast{
+    flex-direction: row;
+}
