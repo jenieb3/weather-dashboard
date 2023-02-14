@@ -1,18 +1,31 @@
-//console.log('hello')
-var APIkey = '379b0ba619900b8104142245c7037879';
-var submitBtn = document.getElementById('search-button');
-var searchInput = document.getElementById('search-input');
+//to search city information and get units in metric
+$("#search-button").click(function () {
+    var city = $(".search-input").val();
+    var APIKey = "be56a49267fb7473491a58cb5c6fdc2d";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + APIKey;
 
-submitBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    var city = searchInput.value;
-    var currWeatherAPI = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + APIkey;
+    if (!city) {
+        alert("Please enter a city name.");
+        return;
+    }
+
+    // Store the city in local storage
+    let history = JSON.parse(localStorage.getItem("history")) || [];
+    if (!history.includes(city)) {
+        history.unshift(city);
+    }
+    history = history.slice(0, 5);
+    localStorage.setItem("history", JSON.stringify(history));
+
+    updateHistory();
 
     $.ajax({
-        url: currWeatherAPI,
-        method: 'GET'
-    }).then(function(response) {
-        console.log(response);
-        // code to display the current weather forecast for the provided city
-    });
+        url: queryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response);
+            displayWeather(response);
+            displayForecast(response);
+        });
 });
