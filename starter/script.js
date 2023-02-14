@@ -75,3 +75,37 @@ $.ajax({
         console.log(response);
         displayWeather(response);
     });
+    // Five day forecast
+function displayForecast(response) {
+    $("#forecast").empty();
+    $("#forecast").prepend($("<h2>").text("5 Day Forecast"));
+    for (let i = 0; i < 40; i += 8) {
+        let date = moment.unix(response.list[i].dt).format("DD/MM/YYYY");
+        let temperature = response.list[i].main.temp;
+        let humidity = response.list[i].main.humidity;
+        let icon = response.list[i].weather[0].icon;
+        let description = response.list[i].weather[0].description;
+        let windSpeed = response.list[0].wind.speed;
+        let windSpeedKPH = windSpeed * 1.609344;
+        windSpeedKPH = windSpeedKPH.toFixed(2);
+
+        let forecastInfo = $("<div>").addClass("card col-md-2 ml-3 mt-3 bg-primary text-white");
+        forecastInfo.append($("<h5>").text(date));
+        forecastInfo.append($("<img>").attr("src", "http://openweathermap.org/img/w/" + icon + ".png"));
+        forecastInfo.append($("<p>").text("Weather: " + description));
+        forecastInfo.append($("<p>").text("Temperature: " + temperature + "°C"));
+        forecastInfo.append($("<p>").text("Wind Speed: " + windSpeed + " KPH"));
+        forecastInfo.append($("<p>").text("Humidity: " + humidity + "%"));
+
+        $("#forecast").append(forecastInfo);
+    }
+}
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+})
+    .then(function (response) {
+        console.log(response);
+        displayForecast(response);
+    });
