@@ -1,6 +1,9 @@
 * {
     margin-left: 0;
     padding: 0%;
+    background-image: url(./Images/weather-forecast.png);
+   background-attachment: fixed;
+    
 
 }
 
@@ -8,10 +11,17 @@
     display: inline;
 }
 
+#today {
+margin-left: 800px;
+   align-self: center;
+   height: 200px;
+   width: 150%;
+}
 
 
 h1 {
-    color: #f3f2f9;
+    color: #060607;
+    background-color: rgb(5, 5, 161);
 }
 
 
@@ -21,27 +31,17 @@ img {
     justify-content: center;
 }
 
-.search-input,
-.list-group-item {
-    
-
-}
-
 #container-fluid {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
-
-h3{
+h3 {
     text-align: left;
+    font-weight: bold;
+    
 }
-#today{
-
-}
-
 
 #forecast {
 
@@ -51,9 +51,16 @@ h3{
     flex-wrap: wrap;
     justify-content: space-around;
     text-align: left;
+    border-color: #060607;
+    border-width: 5px bold;
 }
+
 h2 {
     display: inline;
-    padding-top: 30px;
+    padding-top: 50px;
+    padding-bottom: 30px;
     text-align: center;
+}
+.p {
+    font-weight: bolder;
 }
