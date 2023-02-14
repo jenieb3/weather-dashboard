@@ -1,17 +1,59 @@
 * {
-    padding: 0;
-    margin-left: 0px;
+    margin-left: 0;
+    padding: 0%;
+
 }
+
+.form {
+    display: inline;
+}
+
+
+
+h1 {
+    color: #f3f2f9;
+}
+
 
 img {
     width: 50px;
     height: 50px;
-}
-#search-section {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.search-input, .list-group-item {
-    flex-basis: 45%;
+.search-input,
+.list-group-item {
+    
+
+}
+
+#container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+h3{
+    text-align: left;
+}
+#today{
+
+}
+
+
+#forecast {
+
+    padding-left: 50px;
+    color: darkslateblue;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: left;
+}
+h2 {
+    display: inline;
+    padding-top: 30px;
+    text-align: center;
 }
