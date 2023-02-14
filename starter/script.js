@@ -14,7 +14,7 @@ $("#search-button").click(function () {
     if (!history.includes(city)) {
         history.unshift(city);
     }
-    history = history.slice(0, 5);
+    history = history.slice(0, 7);
     localStorage.setItem("history", JSON.stringify(history));
 
     updateHistory();
@@ -29,3 +29,17 @@ $("#search-button").click(function () {
             displayForecast(response);
         });
 });
+// Update the search history
+function updateHistory() {
+    let history = JSON.parse(localStorage.getItem("history")) || [];
+    $("#history").empty();
+    for (let i = 0; i < history.length; i++) {
+        let city = history[i];
+        let historyItem = $("<button>").addClass("list-group-item list-group-item-action").text(city);
+        historyItem.on("click", function () {
+            $(".search-input").val(city);
+            $("#search-button").click();
+        });
+        $("#history").append(historyItem);
+    }
+}
