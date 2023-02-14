@@ -43,3 +43,35 @@ function updateHistory() {
         $("#history").append(historyItem);
     }
 }
+//today forecast
+function displayWeather(response,) {
+    let main = response.list[0].weather[0].main;
+    let description = response.list[0].weather[0].description;
+    let icon = response.list[0].weather[0].icon;
+    let temperature = response.list[0].main.temp;
+    let humidity = response.list[0].main.humidity;
+    let windSpeed = response.list[0].wind.speed;
+    let windSpeedKPH = windSpeed * 1.609344;
+    windSpeedKPH = windSpeedKPH.toFixed(2);
+    let cityName = response.city.name;
+    let currentDate = moment().format("DD/MM/YYYY")
+
+    let weatherInfo = $("<div>").addClass("card");
+    weatherInfo.append($("<h3>").text(cityName + " " + currentDate));
+    weatherInfo.append($("<h3>").text(main + " - " + description));
+    weatherInfo.append($("<img>").attr("src", "http://openweathermap.org/img/w/" + icon + ".png"));
+    weatherInfo.append($("<p>").text("Temperature: " + temperature + "°C"));
+    weatherInfo.append($("<p>").text("Wind Speed: " + windSpeed + " KPH"));
+    weatherInfo.append($("<p>").text("Humidity: " + humidity + "%"));
+
+    $("#today").empty().append(weatherInfo);
+}
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+})
+    .then(function (response) {
+        console.log(response);
+        displayWeather(response);
+    });
