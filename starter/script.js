@@ -14,7 +14,7 @@ $("#search-button").click(function () {
     if (!history.includes(city)) {
         history.unshift(city);
     }
-    history = history.slice(0, 7);
+    history = history.slice(0, 5);
     localStorage.setItem("history", JSON.stringify(history));
 
     updateHistory();
