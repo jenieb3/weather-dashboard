@@ -1,10 +1,17 @@
-.input-group{
+* {
+    padding: 0;
+    margin-left: 0px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+#search-section {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
 }
-.today{
-flex-direction: column;
-}
-.forecast{
-    flex-direction: row;
+
+.search-input, .list-group-item {
+    flex-basis: 45%;
 }
