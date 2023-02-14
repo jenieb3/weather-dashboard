@@ -2,26 +2,32 @@
     margin-left: 0;
     padding: 0%;
     background-image: url(./Images/weather-forecast.png);
-   background-attachment: fixed;
+    background-attachment: fixed;
     
+
+
+}
+#container-fluid {
+    position: static;
 
 }
 
 .form {
-    display: inline;
+    display: flex;
+    flex-direction: wrap;
 }
 
 #today {
-margin-left: 800px;
-   align-self: center;
-   height: 200px;
-   width: 150%;
+    margin-left: 800px;
+    align-self: center;
+    height: 150px;
+    width: 150%;
 }
 
 
 h1 {
     color: #060607;
-    background-color: rgb(5, 5, 161);
+    
 }
 
 
@@ -40,7 +46,7 @@ img {
 h3 {
     text-align: left;
     font-weight: bold;
-    
+
 }
 
 #forecast {
@@ -61,6 +67,7 @@ h2 {
     padding-bottom: 30px;
     text-align: center;
 }
+
 .p {
     font-weight: bolder;
 }

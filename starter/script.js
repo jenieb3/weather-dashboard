@@ -56,7 +56,7 @@ function displayWeather(response,) {
     let cityName = response.city.name;
     let currentDate = moment().format("DD/MM/YYYY")
 
-    let weatherInfo = $("<div class=>").addClass(" today card col-md-2 ml-3 mt-3 bg-primary text-black");
+    let weatherInfo = $("<div class=>").addClass(" today card col-md-2 ml-3 mt-3 bg-dark text-black");
     weatherInfo.append($("<h3>").text(cityName + " " + currentDate));
     weatherInfo.append($("<h3>").text(main + " - " + description));
     weatherInfo.append($("<img>").attr("src", "http://openweathermap.org/img/w/" + icon + ".png"));
@@ -89,7 +89,7 @@ function displayForecast(response) {
         let windSpeedKPH = windSpeed * 1.609344;
         windSpeedKPH = windSpeedKPH.toFixed(2);
 
-        let forecastInfo = $("<div>").addClass("card col-md-2 ml-3 bg-primary text-black");
+        let forecastInfo = $("<div>").addClass("card col-md-2 ml-3 bg-dark text-black");
         forecastInfo.append($("<h3>").text(date));
         forecastInfo.append($("<img>").attr("src", "http://openweathermap.org/img/w/" + icon + ".png"));
         forecastInfo.append($("<p>").text("Weather: " + description));
