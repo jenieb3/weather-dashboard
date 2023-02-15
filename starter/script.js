@@ -75,7 +75,7 @@ $.ajax({
         console.log(response);
         displayWeather(response);
     });
-    // Five day forecast
+// Five day forecast
 function displayForecast(response) {
     $("#forecast").empty();
     $("#forecast").prepend($("<h2>").text("5 Day Forecast"));

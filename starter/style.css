@@ -3,12 +3,9 @@
     padding: 0%;
     background-image: url(./Images/weather-forecast.png);
     background-attachment: fixed;
-    
+    background-size: cover;
+    background-repeat: no-repeat;
 
-
-}
-#container-fluid {
-    position: static;
 
 }
 
@@ -27,7 +24,7 @@
 
 h1 {
     color: #060607;
-    
+
 }
 
 
@@ -70,4 +67,14 @@ h2 {
 
 .p {
     font-weight: bolder;
+}
+
+@media only screen and (min-width: 1024px) {}
+
+@media only screen and (max-width: 767px) {
+    body {
+        background-image: url(./Images/weather-forecast.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
